@@ -20,14 +20,24 @@
         <th scope="col">Дата \ Время</th>
         <th scope="col">Описание</th>
         <th scope="col">Калории</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
+    <jsp:useBean id="meals" scope="request" type="java.util.List"/>
     <c:forEach items="${meals}" var="meal">
-        <tr style="background-color:${meal.isExcess()? "red" : "green"}">
-            <td>${TimeUtil.formatDateTime(meal.getDateTime())}</td>
-            <td>${meal.getDescription()}</td>
-            <td>${meal.getCalories()}</td>
+        <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.MealTo"/>
+        <tr style="color:${meal.excess? "red" : "green"}">
+            <td>${TimeUtil.formatDateTime(meal.dateTime)}</td>
+            <td>${meal.description}</td>
+            <td>${meal.calories}</td>
+            <td><a href="meals?command=upd&id=${meal.id}">update</a></td>
+            <td><a href="meals?command=del&id=${meal.id}">delete</a></td>
         </tr>
     </c:forEach>
 </table>
+<form action="meals" method="get">
+    <input type="hidden" name="command" value="add">
+    <input type="submit" value="add new meal"/>
+</form>
 </body>
 </html>
