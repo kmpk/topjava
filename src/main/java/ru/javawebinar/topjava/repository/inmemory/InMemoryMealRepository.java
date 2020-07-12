@@ -59,7 +59,7 @@ public class InMemoryMealRepository implements MealRepository {
     }
 
     @Override
-    public Collection<Meal> getAll(int userId) {
+    public List<Meal> getAll(int userId) {
         createMapIfAbsent(userId);
         return repository.get(userId)
                 .values()
@@ -69,7 +69,7 @@ public class InMemoryMealRepository implements MealRepository {
     }
 
     @Override
-    public Collection<Meal> getAllFiltered(int userId, LocalDate start, LocalDate end) {
+    public List<Meal> getAllFiltered(int userId, LocalDate start, LocalDate end) {
         return getAll(userId).stream().filter(m -> {
             LocalDate localDate = m.getDateTime().toLocalDate();
             return localDate.isBefore(end) || localDate.isEqual(end)
