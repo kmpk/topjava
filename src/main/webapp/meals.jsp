@@ -21,6 +21,8 @@
     <h3><a href="index.html">Home</a></h3>
     <hr/>
     <h2>Meals</h2>
+    <hr/>
+    <h3>Фильтрация записей</h3>
     <form method="get" action="meals">
         <div class="row">
             <input type="hidden"name="action" value="filter">
@@ -48,6 +50,7 @@
         </c:choose>>Сброс</a>
         </div>
     </form>
+    <hr/>
     <a href="meals?action=create">Add Meal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
