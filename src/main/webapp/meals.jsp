@@ -21,6 +21,33 @@
     <h3><a href="index.html">Home</a></h3>
     <hr/>
     <h2>Meals</h2>
+    <form method="get" action="meals">
+        <div class="row">
+            <input type="hidden"name="action" value="filter">
+            <div>
+                <label for="startDate">От даты (включая)</label>
+                <input type="date" name="startDate" id="startDate">
+            </div>
+            <div>
+                <label for="endDate">До даты (включая)</label>
+                <input type="date" name="endDate" id="endDate">
+            </div>
+            <div>
+                <label for="startTime">От времени (включая)</label>
+                <input type="time" name="startTime" id="startTime">
+            </div>
+            <div>
+                <label for="endTime">До времени (исключая)</label>
+                <input type="time" name="endTime" id="endTime">
+            </div>
+            <button type="submit">Фильтровать</button>
+            <a href="meals" <c:choose>
+            <c:when test="${!param.action.equals(\"filter\")}">
+                hidden
+            </c:when>
+        </c:choose>>Сброс</a>
+        </div>
+    </form>
     <a href="meals?action=create">Add Meal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
