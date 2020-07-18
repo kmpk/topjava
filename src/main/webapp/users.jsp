@@ -7,5 +7,6 @@
 <h3><a href="index.html">Home</a></h3>
 <hr>
 <h2>Users</h2>
+<h4>Logged as user with id ${userId}</h4>
 </body>
 </html>
