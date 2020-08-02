@@ -50,7 +50,7 @@ public class JdbcMealRepository implements MealRepository {
     private int update(MapSqlParameterSource map) {
         return namedParameterJdbcTemplate.update("" +
                 "UPDATE meals " +
-                "SET date_time=:date_time, description=:description, calories=:calories " +
+                "SET date_time=:dateTime, description=:description, calories=:calories " +
                 "WHERE id=:id AND user_id=:userId", map);
     }
 
@@ -64,10 +64,11 @@ public class JdbcMealRepository implements MealRepository {
 
     @Override
     public Meal get(int id, int userId) {
-        return jdbcTemplate.queryForObject("" +
+        List<Meal> result = jdbcTemplate.query("" +
                 "SELECT * " +
                 "FROM meals " +
                 "WHERE id=? AND user_id=?", ROW_MAPPER, id, userId);
+        return result.size() == 1 ? result.get(0) : null;
     }
 
     @Override
