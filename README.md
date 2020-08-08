@@ -1,5 +1,5 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/367e10c3830f429693314ec5133abd5c)](https://www.codacy.com/manual/kmpk/topjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kmpk/topjava&amp;utm_campaign=Badge_Grade)
-
+[![Build Status](https://travis-ci.com/kmpk/topjava.svg?branch=master)](https://travis-ci.com/kmpk/topjava)
 
 Java Enterprise Online Project 
 ===============================
